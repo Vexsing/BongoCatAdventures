@@ -24,9 +24,14 @@ public class PlayerController : MonoBehaviour {
     [HideInInspector]
     public Vector2 playerInput;
 
+    private SpriteRenderer spriteRenderer;
+    private Animator animator;
+
     // Use this for initialization
     public virtual void Awake() {
         collider = GetComponent<BoxCollider2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
 
     public virtual void Start()
@@ -46,7 +51,7 @@ public class PlayerController : MonoBehaviour {
         collisions.Reset();
         collisions.velocityOld = velocity;
         playerInput = input;
-
+       
         if (velocity.y < 0)
         {
             DescendSlope(ref velocity);
@@ -55,13 +60,22 @@ public class PlayerController : MonoBehaviour {
         {
             HorizontalCollisions(ref velocity);
         }
-    
         if (velocity.y != 0)
         {
             VerticalCollisions(ref velocity);
         }
-            
+        
+        if (input.x != 0)
+        {
+            animator.SetBool("running", value: true);
+        }
+        else
+        {
+            animator.SetBool("running", value: false);
+        }
+        //print(velocity.x);
         transform.Translate(velocity);
+
     }
 
     void HorizontalCollisions(ref Vector3 velocity)
@@ -72,6 +86,10 @@ public class PlayerController : MonoBehaviour {
         for (int i = 0; i < horizontalRayCount; i++)
         {
             Vector2 rayOrigin = (directionX == -1) ? raycastOrigins.bottomLeft : raycastOrigins.bottomRight;
+            if (spriteRenderer.flipX ? (directionX > 0) : (directionX < 0))
+            {
+                spriteRenderer.flipX = !spriteRenderer.flipX;
+            }
             rayOrigin += Vector2.up * (horizontalRaySpacing * i);
             RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.right * directionX, rayLength, collisionMask);
 

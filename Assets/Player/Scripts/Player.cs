@@ -5,13 +5,18 @@ using UnityEngine;
 [RequireComponent (typeof (PlayerController))]
 public class Player : MonoBehaviour {
 
-    float jumpHeight = 1.5f;
-    float timeToJumpApex = .3f;
+    [SerializeField]
+    float jumpHeight = 1.0f;
+    [SerializeField]
+    float timeToJumpApex = .35f;
 
+    [SerializeField]
     float accelerationTimeAirborne = .2f;
+    [SerializeField]
     float accelerationTimeGrounded = .1f;
 
-    float moveSpeed = 3;
+    [SerializeField]
+    float moveSpeed = 3.5f;
     float gravity;
     float jumpVelocity;
     float velocityXSmoothing;
