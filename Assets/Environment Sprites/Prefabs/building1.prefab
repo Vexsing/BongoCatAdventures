@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4488085209628440}
   - component: {fileID: 212999645151254334}
-  - component: {fileID: 68971829933525780}
+  - component: {fileID: 61947159770326470}
   m_Layer: 0
   m_Name: building1
   m_TagString: Untagged
@@ -35,14 +35,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1484220008693626}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.37, y: 2.382, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -25.68, y: 2.37, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!68 &68971829933525780
-EdgeCollider2D:
+--- !u!61 &61947159770326470
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -54,10 +54,18 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.41, y: 4.05}
+    newSize: {x: 2.41, y: 4.05}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.41, y: 4.05}
   m_EdgeRadius: 0
-  m_Points:
-  - {x: -1.204998, y: 2.0238566}
-  - {x: 1.2006645, y: 2.0233302}
 --- !u!212 &212999645151254334
 SpriteRenderer:
   m_ObjectHideFlags: 1

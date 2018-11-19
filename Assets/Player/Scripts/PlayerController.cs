@@ -65,16 +65,25 @@ public class PlayerController : MonoBehaviour {
             VerticalCollisions(ref velocity);
         }
         
-        if (input.x != 0)
+        if (input.x != 0 && !Input.GetKeyDown(KeyCode.Space))
         {
             animator.SetBool("running", value: true);
+            animator.SetBool("jumping", value: false);
+        }
+        else if (Input.GetKeyDown(KeyCode.Space))
+        {
+            animator.SetBool("running", value: false);
+            animator.SetBool("jumping", value: true);
+            print("Jumping");
         }
         else
         {
             animator.SetBool("running", value: false);
+            animator.SetBool("jumping", value: false);
         }
-        //print(velocity.x);
+        print(Input.GetKeyDown(KeyCode.Space));
         transform.Translate(velocity);
+       
 
     }
 
