@@ -1,0 +1,1 @@
+Finished game is in the build folder, download the entire build folder and run. Don't try to run through the game folder itself.
